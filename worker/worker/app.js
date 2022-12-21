@@ -1,26 +1,31 @@
 
-
-async function addjop(){
-let getdiv = document.querySelector("section .job-list");
-let jopip = '';
-fetch(jopip)
-.then(response=>response.json())
-.then(responseJson=>{
-
-    let jopcard=document.createElement("div");
-    let jopname=document.createElement("div");
-    let jopimg = document.createElement("img");
-    let jopdetail=document.createElement("div");
-    let compheader=document.createElement("h4");
-    let jopheader =document.createElement("h3");
-    let jopdesc=document.createElement("p");
-    let joplabel =document.createElement("div");
-    let 
-
-
-})
-
+// for search 
+const searchBtn= document.getElementsByClassName("search-button");
+const joplist =document.getElementById("Jobs");
+searchBtn.addEventListener('click', getjoplist);
+function getjoplist(){
+    let searchinnputtxt=document.getElementsByClassName("search-card").value.trim();
+    fetch("").then(response => response.json())
+    .then(data=>{
+        let jopimg=document.getElementsByClassName("job-profile");
+        let detail=""; 
+        if(data.jops){
+            data.jop.forEach(jop => {
+                jopimg.setAttribute(src,jop.imgurl);
+                 detail='<h4>${ jop.comname }</h4>'+
+                '<h3>${jop.jopname }</h3>'+
+                '<p>${jop.jopdetail}</p>'; });
+        }
+    })
 }
+
+
+
+
+
+
+
+
 //change navbav color
 
 $(document).ready(function () {
