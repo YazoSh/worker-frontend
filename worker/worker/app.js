@@ -1,4 +1,22 @@
 
+
+//display all jop 
+fetch("").then(response => response.json())
+    .then(data=>{
+        let jopimg=document.getElementsByClassName("job-profile");
+        if(data.jops){
+            data.jop.forEach(jop => {
+                jopimg.setAttribute(src,jop.imgurl);
+                document.getElementById("compname").innerHTML=jop.compname;
+                document.getElementById("jopname").innerHTML=jop.jopname;
+                document.getElementById("details").innerHTML=jop.jopdetail;
+                for(var i =0 ;i<jop.length();i++){
+                    document.getElementsByClassName("label-a").innerHTML=jop.jopfiled;
+                }
+                document.getElementsByClassName("job-posted").jop.time;
+            })
+}})
+
 // for search 
 const searchBtn= document.getElementsByClassName("search-button");
 const joplist =document.getElementById("Jobs");
@@ -8,22 +26,19 @@ function getjoplist(){
     fetch("").then(response => response.json())
     .then(data=>{
         let jopimg=document.getElementsByClassName("job-profile");
-        let detail=""; 
         if(data.jops){
             data.jop.forEach(jop => {
                 jopimg.setAttribute(src,jop.imgurl);
-                 detail='<h4>${ jop.comname }</h4>'+
-                '<h3>${jop.jopname }</h3>'+
-                '<p>${jop.jopdetail}</p>'; });
-        }
-    })
+                document.getElementById("compname").innerHTML=jop.compname;
+                document.getElementById("jopname").innerHTML=jop.jopname;
+                document.getElementById("details").innerHTML=jop.jopdetail;
+                for(var i =0 ;i<jop.length();i++){
+                    document.getElementsByClassName("label-a").innerHTML=jop.jopfiled;
+                }
+                document.getElementsByClassName("job-posted").jop.time;
+            })
+}})
 }
-
-
-
-
-
-
 
 
 //change navbav color
