@@ -36,14 +36,14 @@
     <div class="post-box">
         <h1>Find a great hire, fast</h1>
 
-        <form method="post" action="#">
+        <form method="post" id="post" action="#">
             <p>Job title
-                <br><input type="text" placeholder="Add the title you are hiring for ">
+                <br><input type="text" id="joptitle" placeholder="Add the title you are hiring for ">
             </p>
 
-            <p>Company</p><input type="text">
+            <p>Company</p><input id="companyname" type="text">
             <br>
-            <p>Workplace type</p><select>
+            <p>Workplace type</p><select name="Workplace-type">
                 <option>On-Site</option>
                 <option>Hyprid</option>
                 <option>Remote</option>
@@ -51,7 +51,7 @@
             <br>
             <p>Job location</p><input type="text">
             <br>
-            <p>Job type</p><select>
+            <p>Job type</p><select name="job-type">
                 <option>Full-time</option>
                 <option>Part-time</option>
                 <option>Contact</option>
