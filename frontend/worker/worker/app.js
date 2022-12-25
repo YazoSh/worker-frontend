@@ -50,8 +50,7 @@ searchBtn.addEventListener('click', getjoplist);
 function getjoplist(){
     let jopimg = document.createElement("img");
     let jobcard=document.createElement("div");
-    jopcard.setAttribute("class","job-card");
-    
+    jopcard.setAttribute("class","job-card")
 
     let searchinnputtxt=document.getElementsByClassName("search-card").value;
     fetch("\\link of api with searchinnputtxt ").then(response => response.json())

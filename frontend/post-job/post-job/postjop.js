@@ -16,7 +16,7 @@ Workplacetype.addEventListener('change', e => {
 jobname=jobname.value;
 companyname=companyname.value;
 joblocation =joblocation.value;
-fetch('', {
+fetch('' , {
   method: 'POST',
   body: JSON.stringify({ 
     title : jobname,
