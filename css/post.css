@@ -1,0 +1,116 @@
+:root {
+    --primaryColor: #0076de;
+    --whiteColor: #fff;
+    --blackColor: #333;
+    --greyColor: #f6f8fa;
+    --labelColor: #64b1f5;
+    --yellowColor: #ffd723;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/comming-soon.jpg');
+}
+
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1rem 2.5rem;
+    z-index: 10;
+    color: var(--whiteColor);
+    background-color: #072946;
+}
+
+.navbar-logo a {
+    letter-spacing: 2.5;
+    text-decoration: none;
+    color: var(--whiteColor);
+
+}
+
+.navbar-menu {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: var(--whiteColor);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.bar {
+    width: 15px;
+    height: 2px;
+    margin: 3px auto;
+    transition: all 0.3 ease-in-out;
+    color: var(--whiteColor);
+    cursor: pointer;
+}
+
+.post-box {
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    width: 450px;
+}
+
+.post-box h1 {
+    font-size: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 40px;
+    color: white;
+}
+
+.post-box p {
+    font-size: 20px;
+    margin: 15px 0;
+    color: white;
+    font-weight: bold;
+}
+
+.post-box input,
+select {
+    font-size: 16px;
+    padding: 15px 10px;
+    width: 100%;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+}
+
+button {
+    font-size: 16px;
+    padding: 10px 10px;
+    width: 25%;
+    margin-left: 38%;
+    margin-top: 10%;
+    border: 0;
+    border-radius: 5px;
+    outline: none;
+    color: var(--whiteColor);
+    font-weight: bold;
+    background-color: var(--primaryColor);
+}
