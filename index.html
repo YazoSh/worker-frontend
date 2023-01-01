@@ -9,27 +9,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Nunito&display=swap" rel="stylesheet">
     <!-- icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script type="text/javascript" src="https://unpkg.com/axios@0.25.0/dist/axios.min.js"></script>
 
     <title>Worker</title>
 </head>
 
 <body>
- <!-- navbar -->
+    <!-- navbar -->
     <nav class="navbar">
-        <h2 class="navbar-logo"><a href="#">WORKER</h2>
+        <h2 class="navbar-logo"><a href="#">WORKER</a></h2>
         <div class="navbar-menu">
             <a href="#">Search</a>
             <a href="#Jobs">Jobs</a>
-            <!-- <a href="#testimoni">profile</a> -->
             <a href="#companies">Companies</a>
             <a href="#foot">Contact Us</a>
         </div>
-        <div class="menu-toggle">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
+        <span id='login-box'>
+            <div id='loggedin' hidden>
+                <p id="greeting">Hello, Name</p>
+                <a id="logoutBtn" style="cursor: pointer; font-weight: bold;">Logout</a>
+            </div>
+            <div id='notLoggedin'>
+                <a style="font-weight: bold;" href="./login.html">Login</a>
+            </div>
+        </span>
     </nav>
 
     <!--header-->
@@ -105,115 +107,8 @@
 
     <!-- job listing -->
 
-    <section class="job-list" id="Jobs">
-        <a href="/frontend/job/job/jobs.html"><div class="job-card">
-            <div class="job-name">
-                <img class="job-profile" src="images/job-list1.png">
-                <div class="job-detail">
-                    <h4>Tesla</h4>
-                    <h3>Mechanical Engineer</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div>
-            </div>
-            <div class="job-label">
-                <a class="label-a" href="#">HTML</a>
-                <a class="label-b" href="#">CSS</a>
-                <a class="label-c" href="#">JS</a>
-            </div>
-            <div class="job-posted">
-                Posted 2 mins ago
-            </div>
-
-        </div></a>
-
-        <a href="/frontend/job/job/jobs.html"> <div class="job-card">
-            <div class="job-name">
-                <img class="job-profile" src="images/job-list2.png">
-                  <div class="job-detail">
-                    <h4>Tesla</h4>
-                    <h3>Mechanical Engineer</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div> 
-            </div>
-            <div class="job-label">
-                <a class="label-a" href="#">HTML</a>
-                <a class="label-b" href="#">CSS</a>
-                <a class="label-c" href="#">JS</a>
-            </div>
-            <div class="job-posted">
-                Posted 2 mins ago
-            </div>
-
-        </div></a>
-
-        <a href="/frontend/job/job/jobs.html"><div class="job-card">
-            <div class="job-name">
-                <img class="job-profile" src="images/job-list3.png">
-                <div class="job-detail">
-                    <h4>Tesla</h4>
-                    <h3>Mechanical Engineer</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div>
-            </div>
-            <div class="job-label">
-                <a class="label-a" href="">HTML</a>
-                <a class="label-b" href="">CSS</a>
-                <a class="label-c" href="">JS</a>
-            </div>
-            <div class="job-posted">
-                Posted 2 mins ago
-            </div>
-
-        </div></a>
-
-        <a href="/frontend/job/job/jobs.html"><div class="job-card">
-            <div class="job-name">
-                <img class="job-profile" src="images/job-list4.png">
-                <div class="job-detail">
-                    <h4>Tesla</h4>
-                    <h3>Mechanical Engineer</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div>
-            </div>
-            <div class="job-label">
-                <a class="label-a" href="#">HTML</a>
-                <a class="label-b" href="#">CSS</a>
-                <a class="label-c" href="#">JS</a>
-            </div>
-            <div class="job-posted">
-                Posted 2 mins ago
-            </div>
-
-        </div></a>
-
-        <a href="/frontend/job/job/jobs.html"><div class="job-card">
-            <div class="job-name">
-                <img class="job-profile" src="images/job-list2.png">
-                <div class="job-detail">
-                    <h4>Tesla</h4>
-                    <h3>Mechanical Engineer</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </p>
-                </div>
-            </div>
-            <div class="job-label">
-                <a class="label-a" href="#">HTML</a>
-                <a class="label-b" href="#">CSS</a>
-                <a class="label-c" href="#">JS</a>
-            </div>
-            <div class="job-posted">
-                Posted 2 mins ago
-            </div>
-
-        </div></a>
-
-
-        <button class="job-more">More List</button>
-    </section>
+    <section class="job-list" id="jobList"></section>
+    <button class="job-more">More List</button>
 
 
     <!-- company -->
@@ -233,7 +128,7 @@
             <a class="featured-card" href="/frontend/company/company/comp.html">
                 <img class="featured-image" src="images/youtube.png">
                 <p>Youtube</p>
-                <button class="featured-button" >View 1 jobs</button>
+                <button class="featured-button">View 1 jobs</button>
             </a>
 
             <a class="featured-card" href="/frontend/company/company/comp.html">
@@ -242,7 +137,8 @@
                 <button class="featured-button">View 3 jobs</button>
             </a>
 
-            <a class="featured-card"  style="color: black; text-decoration: none;" href="/frontend/company/company/comp.html">
+            <a class="featured-card" style="color: black; text-decoration: none;"
+                href="/frontend/company/company/comp.html">
                 <img class="featured-image" src="images/amazon.jpg">
                 <p>Amazon</p>
                 <button class="featured-button">View 2 jobs</button>
@@ -285,8 +181,8 @@
             </a>
         </div>
     </section>
-<!--  footer -->
- <section id="foot" class="footer">
+    <!--  footer -->
+    <section id="foot" class="footer">
         <div class="social">
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-facebook"></i></a>
@@ -311,9 +207,10 @@
         </p>
 
     </section>
-</body>
 
-</html>
+    <script type="text/javascript" src="https://unpkg.com/axios@0.25.0/dist/axios.min.js"></script>
+    <script src="./js/application.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

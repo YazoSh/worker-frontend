@@ -7,6 +7,10 @@
     --yellowColor: #ffd723;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -45,20 +49,24 @@ h1 {
 
 }
 
-.navbar-menu {
+.navbar-menu, #login-box, #loggedin {
     width: 400px;
     display: flex;
     justify-content: space-between;
-
 }
 
-.navbar-menu a {
+#notLoggedin {
+    margin-left: auto; 
+    margin-right: 0;
+}
+
+#greeting {
+    display: inline;
+}
+
+.navbar a {
     text-decoration: none;
     color: var(--whiteColor);
-}
-
-.menu-toggle {
-    display: none;
 }
 
 .bar {

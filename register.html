@@ -15,77 +15,46 @@
 <body>
     <!-- navbar -->
 
-  <nav class="navbar">
+    <nav class="navbar">
         <h2 class="navbar-logo"><a href="#">WORKER</h2>
         <div class="navbar-menu">
-            <a href="../home-page/home.html">Home</a>
-            <a href="#">Sign Up</a>
-            <a href="../login file/login.html">Sign In</a>
-
-        </div>
-        <div class="menu-toggle">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <a href="index.html">Home</a>
         </div>
     </nav>
-
 
     <div class="sign-up-form">
         <div class="rightside ">
             <div class="title">
-                <h3 class="text-center"> Sign UP</h1>
+                <h3 class="text-center">Sign UP</h3>
             </div>
 
             <div class="row">
                 <div class="inputformname">
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" class="firstname" placeholder="first name">
+                        <input type="text" class="firstname" id="name" placeholder="name">
                     </div>
-                    <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" clasa="lastname" placeholder="last name">
-                    </div>
-                    <div class="input-field">
-                        <i class="fas fa-user"></i>
-                        <input type="text" class="username" placeholder="username">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="inputforminfo ">
+
                     <div class="input-field col-mad-3 col-sm-3 col-xm-6">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" class="email"
-                        placeholder="Email">
+                        <input type="email" class="email" id="email" placeholder="Email">
                     </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" class="username" id="username" placeholder="username">
+                    </div>
+
                     <div class="input-field col-mad-3 col-sm-3 col-xm-6">
-                        <i class=" fas fa-sharp fa-solid fa-phone"></i>
-                        <input type="phone number" class="phonenumber"   placeholder="phonenumber">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" class="password" id="password" placeholder="Password">
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <!-- inputforminfo -->
-                <div class="inputforminfo">
-                    <div class="input-field">
-                        <i class="fas fa-earth-americas"></i>
-                        <input type="text" placeholder="Country">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col-mad-3 col-sm-3 col-xm-6">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" class="password" placeholder="Password">
-                    </div>
-                    <div class="input-field col-mad-3 col-sm-3 col-xm-6">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" class="conpas" placeholder="conform password">
-                    </div>
-                </div>
-                
-                <a href="/frontend/worker/worker/index.html"><input type="submit" value="login" class="btn solid"></a>
+                <input type="submit" value="Register" id="registerBtn" class="btn solid">
                 <p class="social-text">Or sign in with social platforms </p>
                 <div class="social-media">
                     <a href="#" class="social-icon  ">
@@ -101,15 +70,11 @@
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>
-
-
-                <!-- <div class="leftside col-mad-3 col-sm-3 col-xs-6">
-
-                </div> -->
             </div>
         </div>
     </div>
-
+    <script src="./js/application.js"></script>
+    <script src="js/register.js"></script>
 </body>
 
 </html>

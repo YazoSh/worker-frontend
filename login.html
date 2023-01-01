@@ -14,14 +14,7 @@
   <nav class="navbar">
         <h2 class="navbar-logo"><a href="#">WORKER</h2>
         <div class="navbar-menu">
-            <a href="../home-page/home.html">Home</a>
-            <a href="#">Sign In</a>
-            <a href="../regester/reg.html">Sign UP</a>
-        </div>
-        <div class="menu-toggle">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <a href="index.html">Home</a>
         </div>
     </nav>
 
@@ -29,14 +22,15 @@
         <h2 class="title">Sign in</h2>
         <div class="input-field ">
             <i class="fas fa-user"></i>
-            <input type="text" placeholder="Username">
+            <input id="username" type="text" placeholder="Username">
         </div>
         <div class="input-field">
             <i class="fas fa-lock"></i>
-            <input type="password" placeholder="Password">
+            <input id="password" type="password" placeholder="Password">
         </div>
-       <a href="/frontend/worker/worker/index.html"><input type="button" value="login" class="btn"> </a>
-        <p class="social-text">sign in with social platforms OR <a href="#"> sign up</a></p>
+        <input id="loginBtn" type="button" value="login" class="btn">
+
+        <p class="social-text">sign in with social platforms OR <a href="register.html"> sign up</a></p>
         <div class="social-media">
             <ul class="social_icon-top col-mad-5 " style="list-style:none ;">
                 <li><a href="#" class="social-icon col-mad-1 col-sm-1 col-xs-1">
@@ -65,5 +59,7 @@
             </ul>
     </form>
     </span>
+    <script src="./js/application.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
