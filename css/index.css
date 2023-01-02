@@ -215,6 +215,7 @@ header {
 
 .job-name {
     display: flex;
+    width: 50%;
 }
 
 .job-profile {
@@ -224,7 +225,6 @@ header {
 }
 
 .job-detail {
-
     padding: 0 10px;
 }
 
@@ -272,6 +272,7 @@ header {
 
 .job-posted {
     font-size: 0.8rem;
+    width: 10%
 }
 
 .job-more {

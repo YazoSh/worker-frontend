@@ -5,33 +5,23 @@ const logoutBtn = document.getElementById('logoutBtn')
 
 const jobList = document.getElementById('jobList')
 
-function htmlToElement(html) {
+const searchInput = document.getElementById('searchInput')
+const searchJobLevel = document.getElementById('jobLevel')
+const searchjobLocation = document.getElementById('jobLocation')
+const searchBtn = document.getElementById('searchBtn')
+
+const app = new Application('http://localhost:3000')
+
+const htmlToElement = (html) => {
     var template = document.createElement('template')
     html = html.trim() // Never return a text node of whitespace as the result
     template.innerHTML = html
     return template.content.firstChild
 }
 
-const app = new Application('http://localhost:3000')
-
-app.getUser().then((user) => {
-    if (!user) {
-        loggedIn.hidden = true
-        notLoggedIn.hidden = false
-        return
-    }
-    loggedIn.hidden = false
-    notLoggedIn.hidden = true
-    greetingName.innerText = 'Hello, ' + user.name
-})
-
-logoutBtn.addEventListener('click', (e) => {
-    e.preventDefault()
-    app.logout()
-    location.reload()
-})
-
-app.getJobs().then((jobs) => {
+const renderJobs = (jobs) => {
+    // Clears Job container
+    jobList.replaceChildren()
     for (const job of jobs) {
         const jobElem = htmlToElement(
             `<div class='job post'>
@@ -50,10 +40,42 @@ app.getJobs().then((jobs) => {
                         <a class="label-a" href="#">${job.location}</a>
                     </div>
                     <div class="job-posted">
-                        Posted 2 mins ago
+                        Posted on ${timeFormat.format(new Date(job.datePosted))}
                     </div>
                 </div>
             </div>`)
         jobList.appendChild(jobElem)
     }
+}
+
+const timeFormat = new Intl.DateTimeFormat("en-GB", {
+    year: 'numeric', month: 'numeric', day: 'numeric',
+    timeZone: 'Asia/Amman'
 })
+
+app.getUser().then((user) => {
+    if (!user) {
+        loggedIn.hidden = true
+        notLoggedIn.hidden = false
+        return
+    }
+    loggedIn.hidden = false
+    notLoggedIn.hidden = true
+    greetingName.innerText = 'Hello, ' + user.name
+})
+
+logoutBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    app.logout()
+    location.reload()
+})
+
+searchBtn.addEventListener('click', (e) => {
+    app.getJobs({
+        title: searchInput.value,
+        careerLevel: searchJobLevel.value,
+        location: searchjobLocation.value
+    }).then(renderJobs)
+})
+
+app.getJobs().then(renderJobs)
