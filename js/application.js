@@ -215,6 +215,13 @@ class Application {
         }).then((resp) => resp.json())
     }
 
+    async getJobById(id) {
+        return fetch(this.hosturl + '/job/' + id, {
+            method: 'GET',
+            mode: 'cors',
+        }).then((resp) => resp.json())
+    }
+
     async applyToJob(id) {
         const token = this.getLoginToken()
 

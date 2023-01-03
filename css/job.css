@@ -109,6 +109,14 @@ h1 {
 
 }
 
+.job-level {
+    display: inline-block;
+}
+
+.job-level::first-letter {
+    text-transform:capitalize;
+}
+
 .span2 {
     font-size: small;
     color: green;

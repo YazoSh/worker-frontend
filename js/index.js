@@ -19,13 +19,17 @@ const htmlToElement = (html) => {
     return template.content.firstChild
 }
 
+const timeFormat = new Intl.DateTimeFormat("en-GB", {
+    year: 'numeric', month: 'numeric', day: 'numeric',
+    timeZone: 'Asia/Amman'
+})
+
 const renderJobs = (jobs) => {
     // Clears Job container
     jobList.replaceChildren()
     for (const job of jobs) {
         const jobElem = htmlToElement(
-            `<div class='job post'>
-                <div class="job-card">
+            `<div class="job-card">
                     <div class="job-name">
                         <img class="job-profile" src="images/job-list1.png">
                         <div class="job-detail">
@@ -42,16 +46,13 @@ const renderJobs = (jobs) => {
                     <div class="job-posted">
                         Posted on ${timeFormat.format(new Date(job.datePosted))}
                     </div>
-                </div>
-            </div>`)
+                </div>`)
+        jobElem.addEventListener('click', () => {
+            location.href=`job.html?jobId=${job.id}`
+        })
         jobList.appendChild(jobElem)
     }
 }
-
-const timeFormat = new Intl.DateTimeFormat("en-GB", {
-    year: 'numeric', month: 'numeric', day: 'numeric',
-    timeZone: 'Asia/Amman'
-})
 
 app.getUser().then((user) => {
     if (!user) {
