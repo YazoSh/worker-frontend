@@ -6,6 +6,7 @@ const datePosted = document.getElementById('datePosted')
 const level = document.getElementById('level')
 const description = document.getElementById('description')
 const id = document.getElementById('id')
+const industry = document.getElementById('industry')
 
 const app = new Application('http://localhost:3000')
 
@@ -26,6 +27,7 @@ app.getJobById(params.jobId).then((job) => {
     jobLocation.innerText = job.location + ' . '
     datePosted.innerText = timeFormat.format(new Date(job.datePosted))
     level.innerText = job.careerLevel
+    industry.innerText = job.industry
     description.innerText = job.description
     id.innerText = `Job ID: ${job.id}`
 })
