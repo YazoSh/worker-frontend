@@ -32,12 +32,17 @@ app.getJobById(params.jobId).then((job) => {
     description.innerText = job.description
     id.innerText = `Job ID: ${job.id}`
 
-    app.isLoggedIn().then((loggedIn) => {
-        if (!loggedIn) {
+    app.getUser().then((user) => {
+        if (!user) {
             applyBtn.addEventListener('click', () => {
                 location.href = "login.html"
             })
             return
+        } else {
+            if (job.company.id === user.company.id) {
+                applyBtnCont.hidden = true
+                return
+            }
         }
 
         app.checkApplied(params.jobId).then((resp) => {
