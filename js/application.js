@@ -268,7 +268,6 @@ class Application {
             .then((resp) => resp.json())
             .then((resp) => {
                 if (!resp.success) alert(resp.message)
-                console.log(resp)
                 return resp.data
             })
     }
@@ -294,9 +293,10 @@ class Application {
             })
     }
 
-    async hasCV() {
+    async hasCV(id) {
+        const userId = id || (await this.getUser()).id
         return await fetch(
-            this.hosturl + '/file/cv/' + (await this.getUser()).id,
+            this.hosturl + '/file/cv/' + userId,
             {
                 method: 'GET',
                 mode: 'cors',
@@ -304,9 +304,10 @@ class Application {
         ).then((resp) => resp.json())
     }
 
-    async getCV() {
+    async getCV(id) {
+        const userId = id || (await this.getUser()).id
         return await fetch(
-            this.hosturl + '/file/cv/download/' + (await this.getUser()).id,
+            this.hosturl + '/file/cv/download/' + userId,
             {
                 method: 'GET',
                 mode: 'cors',

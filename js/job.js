@@ -9,6 +9,8 @@ const id = document.getElementById('id')
 const industry = document.getElementById('industry')
 const applyBtn = document.getElementById('applyBtn')
 const applyBtnCont = document.getElementById('applyBtnCont')
+const applicantsList = document.getElementById('applicantsList')
+const applicantsSection = document.getElementById('applicants-section')
 
 const app = new Application('http://localhost:3000')
 
@@ -20,6 +22,45 @@ const timeFormat = new Intl.DateTimeFormat("en-GB", {
     year: 'numeric', month: 'numeric', day: 'numeric',
     timeZone: 'Asia/Amman'
 })
+
+const htmlToElement = (html) => {
+    var template = document.createElement('template')
+    html = html.trim() // Never return a text node of whitespace as the result
+    template.innerHTML = html
+    return template.content.firstChild
+}
+
+const renderApplicants = (applicants) => {
+    for (const a of applicants) {
+        const userElem = htmlToElement(
+            `<div class="job-card">
+                    <div class="job-name">
+                        <img class="job-profile" src="images/network.png">
+                        <div class="job-detail">
+                            <h3>${a.name}</h3>
+                            <p>${a.email}</p>
+                        </div>
+                    </div>
+                    <div class="job-posted">
+                        <button class="button" data-userid="${a.id}" data-name="${a.name}">CV</button>
+                    </div>
+            </div>`)
+        applicantsList.appendChild(userElem)
+    }
+}
+
+const saveBlob = (function () {
+    var a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    return function (blob, fileName) {
+        var url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = fileName;
+        a.click();
+        window.URL.revokeObjectURL(url);
+    };
+}());
 
 app.getJobById(params.jobId).then((job) => {
     title.innerText = job.title
@@ -41,6 +82,8 @@ app.getJobById(params.jobId).then((job) => {
         } else {
             if (job.company.id === user.company.id) {
                 applyBtnCont.hidden = true
+                applicantsSection.hidden = false
+                app.getJobApplicants(params.jobId).then(renderApplicants)
                 return
             }
         }
@@ -59,4 +102,18 @@ app.getJobById(params.jobId).then((job) => {
             }
         })
     })
+})
+
+applicantsList.addEventListener('click', async (e) => {
+    if (e.target.classList[0] !== 'button') return
+
+    const userId = e.target.dataset.userid
+    const userName = e.target.dataset.name
+
+    if (!(await app.hasCV(userId)).hasCV) {
+        alert("User doesn't have a CV")
+        return
+    }
+
+    app.getCV(userId).then((blob) => saveBlob(blob, `cv-${userName}-${userId}.pdf`))
 })
