@@ -24,8 +24,6 @@
             </div>
         </nav>
 
-        <!-- job detailes -->
-
         <div class="job-detailes">
             <h2 id="fullname">NA</h2>
             <a>Email:</a><a id="email">NA</a>
@@ -41,13 +39,26 @@
     </div>
 
     <div class="about-job">
-        <h2 id="ab">Company Details</h2>
-        <div id="hasCompany">
-            <h3 id="companyName"></h3>
-            
-            <section class="job-list" id="jobList">
-                <h4>Posted Jobs</h4>
-            </section>
+        <div id="company-section">
+            <h2 id="ab">Company Details</h2>
+            <div id="hasCompany">
+                <div class="company-header">
+                    <h3 id="companyName" style="display: inline"></h3>
+                    <a href="post.html" class="button post-button">Post Job</a>
+                </div>
+
+
+                <section class="job-list" id="jobList">
+                    <h4>Posted Jobs</h4>
+                </section>
+            </div>
+        </div>
+        <div id="create-company-section" class="post-box" hidden>
+            <h1>Create a company</h1>
+            <p>Comapny Name
+                <input type="text" id="createCompanyName">
+            </p>
+            <button id="createCompanyBtn" class="button">Create Company</button>
         </div>
     </div>
 

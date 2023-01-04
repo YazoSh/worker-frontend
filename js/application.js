@@ -121,8 +121,8 @@ class Application {
         })
             .then((resp) => {
                 if (resp)
-                    if (resp.statusCode === 400) alert(...resp.message)
-                    else if (resp.statusCode === 403) alert(resp.error)
+                    if (resp.status === 400) resp.json().then((resp) => alert(...resp.message))
+                    else if (resp.status === 403) alert(resp.error)
             })
             .catch(console.log)
     }

@@ -18,51 +18,38 @@
 <body>
     <!-- navbar -->
 
-   <nav class="navbar">
+    <nav class="navbar">
         <h2 class="navbar-logo"><a href="#">WORKER</h2>
         <div class="navbar-menu">
-            <a href="../job/jobs.html">Jobs</a>
-            <a href="../company/comp.html">Company</a>
-
-        </div>
-        <div class="menu-toggle">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <a href="index.html">Home</a>
         </div>
     </nav>
 
     <div class="post-box">
         <h1>Find a great hire, fast</h1>
+        <p>Job title
+            <br><input type="text" id="title" placeholder="Add the title you are hiring for ">
+        </p>
+        <p>location</p><select name="Workplace-location" id="location">
+            <option value="Amman">Amman</option>
+            <option value="Zarqa">Zarqa</option>
+        </select>
+        <br>
+        <p>Job Industry
+            <br><input type="text" id="industry">
+        </p>
+        <p>Career Level</p><select id="jobLevel" class="filter-select" id="careerLevel" name="job-level">
+            <option value="entry">Entry</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="senior">Senior</option>
+        </select>
+        <p>Job Description
+            <br><textarea id="description" rows="4" cols="62"></textarea>
+        </p>
+        <button id="postJobBtn">Post</button>
+    </div>
+    <script src="./js/application.js"></script>
+    <script src="./js/post.js"></script>
+</body>
 
-        <form method="post" id="post" action="#">
-            <p>Job title
-                <br><input type="text" id="joptitle" placeholder="Add the title you are hiring for ">
-            </p>
-
-            <p>Company</p><input id="companyname" type="text">
-            <br>
-            <p>Workplace type</p><select name="Workplace-type">
-                <option>On-Site</option>
-                <option>Hyprid</option>
-                <option>Remote</option>
-            </select>
-            <br>
-            <p>Job location</p><input id="job-location" type="text">
-            <br>
-            <p>Job type</p><select name="job-type">
-                <option>Full-time</option>
-                <option>Part-time</option>
-                <option>Contact</option>
-                <option>Temporary</option>
-                <option>Other</option>
-                <option>Volunteer</option>
-                <option>Intership</option>
-            </select>
-            <br>
-            <a href="/frontend/post-job/post-job/discription.html"><button>Next</button></a>
-
-        </form>
-       </div>
-       </body>
-           </html>
+</html>

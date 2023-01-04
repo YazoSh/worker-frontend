@@ -72,7 +72,7 @@ body {
 .post-box {
     position: absolute;
     top: 10%;
-    left: 35%;
+    left: 35%; 
     width: 450px;
 }
 
@@ -113,4 +113,5 @@ button {
     color: var(--whiteColor);
     font-weight: bold;
     background-color: var(--primaryColor);
+    cursor: pointer;
 }

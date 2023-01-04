@@ -6,6 +6,11 @@ const cvUpload = document.getElementById('file')
 const companyName = document.getElementById('companyName')
 const jobList = document.getElementById('jobList')
 
+const companySection = document.getElementById('company-section')
+const createCompanySection = document.getElementById('create-company-section')
+const createCompanyName = document.getElementById('createCompanyName')
+const createCompanyBtn = document.getElementById('createCompanyBtn')
+
 const app = new Application('http://localhost:3000')
 
 const htmlToElement = (html) => {
@@ -75,11 +80,17 @@ app.getUser().then((user) => {
     fullname.innerText = user.name
     email.innerText = user.email
 
-    companyName.innerText = user.company.name
+    if (user.company) {
+        companyName.innerText = user.company.name
 
-    app.getJobs({
-        companyId: user.company.id
-    }).then(renderJobs)
+        app.getJobs({
+            companyId: user.company.id
+        }).then(renderJobs)
+    } else {
+        companySection.hidden = true
+        createCompanySection.hidden = false
+    }
+
 })
 
 app.hasCV().then((result) => {
@@ -110,5 +121,11 @@ fileUploadBtn.addEventListener('click', () => {
     }
     app.uploadCV(cv).then((resp) => {
         if (resp.success) location.reload()
+    })
+})
+
+createCompanyBtn.addEventListener('click', () => {
+    app.createCompany(createCompanyName.value).then(() => {
+        location.reload()
     })
 })
