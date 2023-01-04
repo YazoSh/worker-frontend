@@ -31,7 +31,7 @@ const renderJobs = (jobs) => {
         const jobElem = htmlToElement(
             `<div class="job-card">
                     <div class="job-name">
-                        <img class="job-profile" src="images/job-list1.png">
+                        <img class="job-profile" src="images/bigLogo.png">
                         <div class="job-detail">
                             <h4>${job.company.name}</h4>
                             <h3>${job.title}</h3>
