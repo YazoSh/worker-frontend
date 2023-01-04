@@ -258,13 +258,27 @@ h1 {
 
 }
 
-.buttom button {
+.apply button {
     margin: 50px;
     padding: 8px 28px;
     border: none;
     color: white;
     font-weight: bold;
     background-color: #0076de;
+    cursor: pointer;
+
+    font-size: 1.25em;
+    font-weight: 700;
+}
+
+.applied button {
+    margin: 50px;
+    padding: 8px 28px;
+    border: solid;
+    border-color: #0076de;
+    color: #0076de;
+    font-weight: bold;
+    background-color: white;
     cursor: pointer;
 
     font-size: 1.25em;

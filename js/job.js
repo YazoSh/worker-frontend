@@ -7,6 +7,8 @@ const level = document.getElementById('level')
 const description = document.getElementById('description')
 const id = document.getElementById('id')
 const industry = document.getElementById('industry')
+const applyBtn = document.getElementById('applyBtn')
+const applyBtnCont = document.getElementById('applyBtnCont')
 
 const app = new Application('http://localhost:3000')
 
@@ -29,4 +31,27 @@ app.getJobById(params.jobId).then((job) => {
     industry.innerText = job.industry
     description.innerText = job.description
     id.innerText = `Job ID: ${job.id}`
+
+    app.isLoggedIn().then((loggedIn) => {
+        if (!loggedIn) {
+            applyBtn.addEventListener('click', () => {
+                location.href = "login.html"
+            })
+            return
+        }
+
+        app.checkApplied(params.jobId).then((resp) => {
+            if (resp.applied) {
+                applyBtnCont.classList.remove('apply')
+                applyBtnCont.classList.add('applied')
+                applyBtn.innerText = 'Applied'
+            } else {
+                applyBtn.addEventListener('click', () => {
+                    app.applyToJob(job.id).then(() => {
+                        location.reload()
+                    })
+                })
+            }
+        })
+    })
 })

@@ -231,7 +231,6 @@ class Application {
             method: 'POST',
             mode: 'cors',
             headers: {
-                'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`,
             },
         })
@@ -240,6 +239,19 @@ class Application {
                 if (!resp.success) alert(resp.message)
                 return resp
             })
+    }
+
+    async checkApplied(id) {
+        const token = this.getLoginToken()
+
+        return await fetch(this.hosturl + '/job/apply/user/' + id, {
+            method: 'GET',
+            mode: 'cors',
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
+            .then((resp) => resp.json())
     }
 
     async getJobApplicants(id) {
