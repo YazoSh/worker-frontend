@@ -20,7 +20,6 @@ const timeFormat = new Intl.DateTimeFormat("en-GB", {
 })
 
 app.getJobById(params.jobId).then((job) => {
-    console.log(job)
     title.innerText = job.title
     company.innerText = job.company.name + ' . '
     jobDetailsCompany.innerText = job.company.name

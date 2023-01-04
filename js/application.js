@@ -191,6 +191,7 @@ class Application {
     }
 
     async getJobs({
+        companyId,
         title,
         location,
         description,
@@ -205,6 +206,7 @@ class Application {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
+                companyId,
                 title,
                 location,
                 description,
@@ -265,7 +267,7 @@ class Application {
         const formData = new FormData()
         formData.append('cv', cv)
 
-        await fetch(this.hosturl + '/file/cv', {
+        return await fetch(this.hosturl + '/file/cv', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -276,8 +278,7 @@ class Application {
             .then((resp) => resp.json())
             .then((resp) => {
                 if (!resp.success) alert(resp.message)
-                console.log(resp)
-                return resp.data
+                return resp
             })
     }
 

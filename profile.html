@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/job.css">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Nunito&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <title>Worker</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <div class="up">
+        <nav class="navbar">
+            <h2 class="navbar-logo"><a href="#">WORKER</h2>
+            <div class="navbar-menu">
+                <a href="index.html">Home</a>
+            </div>
+        </nav>
+
+        <!-- job detailes -->
+
+        <div class="job-detailes">
+            <h2 id="fullname">NA</h2>
+            <a>Email:</a><a id="email">NA</a>
+            <div class="inside"><img src="images/network.png" width="30" height="30">
+                <span id="cv" class="job-level"></span>
+            </div>
+            <div class="buttom">
+                <input type="file" name="file" id="file" class="inputfile" />
+                <label for="file" class="one" id="fileSelector">Choose a file</label>
+                <button class="one" id="fileUploadBtn">Upload CV</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-job">
+        <h2 id="ab">Company Details</h2>
+        <div id="hasCompany">
+            <h3 id="companyName"></h3>
+            
+            <section class="job-list" id="jobList">
+                <h4>Posted Jobs</h4>
+            </section>
+        </div>
+    </div>
+
+    <script src="./js/application.js"></script>
+    <script src="./js/profile.js"></script>
+</body>
+
+</html>
