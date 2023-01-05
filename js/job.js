@@ -80,7 +80,7 @@ app.getJobById(params.jobId).then((job) => {
             })
             return
         } else {
-            if (job.company.id === user.company.id) {
+            if (user.company && job.company.id === user.company.id) {
                 applyBtnCont.hidden = true
                 applicantsSection.hidden = false
                 app.getJobApplicants(params.jobId).then(renderApplicants)
